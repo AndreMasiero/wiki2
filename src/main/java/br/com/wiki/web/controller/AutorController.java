@@ -43,6 +43,7 @@ public class AutorController {
 		view.addObject("page", page);
 
 		view.addObject("urlPagination", "/autor/page");
+		
 
 		return view;
 	}
