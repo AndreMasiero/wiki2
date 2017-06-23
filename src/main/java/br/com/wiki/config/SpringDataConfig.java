@@ -57,6 +57,7 @@ public class SpringDataConfig {
 	
 	@Bean(name = "dataSource")
 	public DataSource dataSource() {
+		System.out.println("AQUI");
 		BasicDataSource dataSource = new BasicDataSource();
 		dataSource.setUsername(env.getProperty("jdbc.user"));
 		dataSource.setPassword(env.getProperty("jdbc.pass"));
