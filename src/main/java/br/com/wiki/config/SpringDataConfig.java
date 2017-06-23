@@ -69,8 +69,8 @@ public class SpringDataConfig {
 		String name = "wiki";
 		String url = "jdbc:mysql://" + host + ":" + port + "/" + name;
 		ds.setUrl(url);
-		ds.setUsername("username");
-		ds.setPassword("pwd");
+		ds.setUsername("user");
+		ds.setPassword("password");
 
 		// dataSource.setUsername("wiki");
 		// dataSource.setPassword("Batata#14");
