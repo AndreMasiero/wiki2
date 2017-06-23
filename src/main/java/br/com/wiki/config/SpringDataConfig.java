@@ -20,7 +20,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @EnableJpaRepositories("br.com.wiki.repository")
 @EnableTransactionManagement
-//@PropertySource("classpath:/application.properties")
+// @PropertySource("classpath:/application.properties")
 public class SpringDataConfig {
 
 	@Autowired
@@ -54,28 +54,21 @@ public class SpringDataConfig {
 	}
 
 	@Bean(name = "dataSource")
-	public BasicDataSource dataSource() {
-//		System.out.println("AQUI");
-//		BasicDataSource dataSource = new BasicDataSource();
-//		dataSource.setUsername(env.getProperty("jdbc.user"));
-//		dataSource.setPassword(env.getProperty("jdbc.pass"));
-//		dataSource.setDriverClassName(env.getProperty("jdbc.driverClass"));
-//		dataSource.setUrl(env.getProperty("jdbc.url"));
+	public DataSource dataSource() {
+		System.out.println("AQUI");
+		BasicDataSource dataSource = new BasicDataSource();
+		// dataSource.setUsername(env.getProperty("jdbc.user"));
+		// dataSource.setPassword(env.getProperty("jdbc.pass"));
+		// dataSource.setDriverClassName(env.getProperty("jdbc.driverClass"));
+		// dataSource.setUrl(env.getProperty("jdbc.url"));
 
-		BasicDataSource ds = new BasicDataSource();
-		ds.setDriverClassName("com.mysql.jdbc.Driver");
-		String host = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
-		String port = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
-		String name = "wiki";
-		String url = "jdbc:mysql://" + host + ":" + port + "/" + name;
-		ds.setUrl(url);
-		ds.setUsername("user");
-		ds.setPassword("password");
-
-		// dataSource.setUsername("wiki");
-		// dataSource.setPassword("Batata#14");
-		// dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-		// dataSource.setUrl("jdbc:mysql://127.0.0.1:3306/wiki");
-		return ds;
+		dataSource.setUsername("user");
+		dataSource.setPassword("password");
+		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+		
+		dataSource.setUrl("jdbc:mysql://" + System.getenv("OPENSHIFT_MYSQL_DB_HOST") + ":"
+				+ System.getenv("OPENSHIFT_MYSQL_DB_PORT") + "/wiki");
+		
+		return dataSource;
 	}
 }
