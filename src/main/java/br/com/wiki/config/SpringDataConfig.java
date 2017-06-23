@@ -66,7 +66,7 @@ public class SpringDataConfig {
 		ds.setDriverClassName("com.mysql.jdbc.Driver");
 		String host = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
 		String port = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
-		String name = "mytomcatapp";
+		String name = "wiki";
 		String url = "jdbc:mysql://" + host + ":" + port + "/" + name;
 		ds.setUrl(url);
 		ds.setUsername("username");
