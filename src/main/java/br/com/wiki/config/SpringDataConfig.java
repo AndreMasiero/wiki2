@@ -58,15 +58,15 @@ public class SpringDataConfig {
 	@Bean(name = "dataSource")
 	public DataSource dataSource() {
 		BasicDataSource dataSource = new BasicDataSource();
-//		dataSource.setUsername(env.getProperty("jdbc.user"));
-//		dataSource.setPassword(env.getProperty("jdbc.pass"));
-//		dataSource.setDriverClassName(env.getProperty("jdbc.driverClass"));
-//		dataSource.setUrl(env.getProperty("jdbc.url"));
+		dataSource.setUsername(env.getProperty("jdbc.user"));
+		dataSource.setPassword(env.getProperty("jdbc.pass"));
+		dataSource.setDriverClassName(env.getProperty("jdbc.driverClass"));
+		dataSource.setUrl(env.getProperty("jdbc.url"));
 		
-		dataSource.setUsername("wiki");
-		dataSource.setPassword("Batata#14");
-		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-		dataSource.setUrl("jdbc:mysql://localhost:3306/wiki");
+//		dataSource.setUsername("wiki");
+//		dataSource.setPassword("Batata#14");
+//		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+//		dataSource.setUrl("jdbc:mysql://127.0.0.1:3306/wiki");
 		return dataSource;
 	}
 }
